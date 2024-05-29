@@ -1,0 +1,40 @@
+﻿@page "/product"
+<PageTitle>product</PageTitle>
+<h3>ProductComponent</h3>
+
+<select class="form-control" @bind="@SelectId">
+    @foreach(var productItem in ProductList)
+    {
+        <option value="@productItem.Id">@productItem.Name</option>
+    }
+    
+</select>
+
+<input type="button" class="btn btn-primary m-5"  value="Product Details" @onclick = "@LoadProduct" />
+
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Product Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Product?.Id</td>
+            <td>@Product?.Name</td>
+            <td>@Product?.Price</td>
+            <td>
+                <img src="/images/@Product?.Image" style="width:100px" />
+            </td>
+        </tr>
+    </tbody>
+    
+</table>
+
+
+@code {
+
+}
